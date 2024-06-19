@@ -6,43 +6,27 @@
             <th>Paginas</th>
             <th>Editorial</th>
             <th>Precio</th>
+            <th>Stock</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>{{book.libro}}</td>
-            <td>{{book.autor}}</td>
-            <td>{{book.paginas}}</td>
-            <td>{{book.editorial}}</td>
-            <td>{{book.precio}}</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        @for (book of books; track book.id) {
+            <tr>
+                <td>{{book.libro}}</td>
+                <td>{{book.autor}}</td>
+                <td>{{book.paginas}}</td>
+                <td>{{book.editorial}}</td>
+                <td>{{book.precio | currency}}</td>
+                @if (book.stock > 0) {
+                    <td>{{book.stock}}</td>
+                } @else {
+                    <td class="agotado">Agotado</td>
+                }
+            </tr>
+        } @empty {
+            <tr>
+                <td>no quedan libros</td>
+            </tr>
+        }
     </tbody>
 </table>
