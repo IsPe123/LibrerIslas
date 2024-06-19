@@ -16,6 +16,7 @@ export class BookListComponent {
       precio: 20000,
       stock: 2,
       id: 1,
+      quantity: 0,
     },
     {
       libro: 'El Principito',
@@ -25,6 +26,7 @@ export class BookListComponent {
       precio: 10000,
       stock: 0,
       id: 2,
+      quantity: 0,
     },
     {
       libro: 'Maestria',
@@ -34,7 +36,30 @@ export class BookListComponent {
       precio: 23000,
       stock: 2,
       id: 3,
+      quantity: 0,
     }
   ];
 
+  upQuantity(book: Book):void {
+    if (book.quantity < book.stock) {
+      book.quantity++;
+    }
+  }
+
+  downQuantity(book: Book):void {
+    if (book.quantity > 0) {
+      book.quantity--;
+    } 
+  }
+
+  changeQuantity(event: any, book: Book):void {
+    if (event.key !== 'number') {
+      console.log(1);
+      book.quantity = 0;
+    }
+    if ((book.quantity < 0 && book.quantity > book.stock) && (book.quantity !== null)) {
+      console.log(2);
+      book.quantity = 0;
+    }
+  }
 }

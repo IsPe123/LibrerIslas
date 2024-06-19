@@ -6,4 +6,5 @@ export interface Book {
     precio: number;
     stock: number;
     id: number;
+    quantity: number;
 }
