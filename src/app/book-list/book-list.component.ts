@@ -52,14 +52,4 @@ export class BookListComponent {
     } 
   }
 
-  changeQuantity(event: any, book: Book):void {
-    if (event.key !== 'number') {
-      console.log(1);
-      book.quantity = 0;
-    }
-    if ((book.quantity < 0 && book.quantity > book.stock) && (book.quantity !== null)) {
-      console.log(2);
-      book.quantity = 0;
-    }
-  }
 }

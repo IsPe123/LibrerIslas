@@ -1,10 +1,13 @@
 <header>
   <h1>{{title}}</h1>
   <ul class="navigation">
-    <li>Algo</li>
-    <li>Algo 2</li>
+    <li><a [routerLink]="['/']">Inicio</a></li>
+    <li><a [routerLink]="['/about']">About</a></li>
   </ul>
 </header>
 <main>
-  <app-book-list></app-book-list>
+  <router-outlet></router-outlet>
 </main>
+<footer>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dicta corporis tenetur voluptatem similique minus sit odit. Amet sapiente quod iste tenetur deleniti, provident magni odit explicabo blanditiis atque minima?</p>
+</footer>
