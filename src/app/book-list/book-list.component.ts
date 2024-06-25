@@ -37,19 +37,17 @@ export class BookListComponent {
       stock: 2,
       id: 3,
       quantity: 0,
+    },
+    {
+      libro: 'Otro',
+      autor: 'Bla bla bla',
+      paginas: 500,
+      editorial: 'Oceano',
+      precio: 15000,
+      stock: 5,
+      id: 4,
+      quantity: 0,
     }
   ];
-
-  upQuantity(book: Book):void {
-    if (book.quantity < book.stock) {
-      book.quantity++;
-    }
-  }
-
-  downQuantity(book: Book):void {
-    if (book.quantity > 0) {
-      book.quantity--;
-    } 
-  }
 
 }

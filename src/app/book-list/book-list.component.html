@@ -18,15 +18,15 @@
                 <td>{{book.paginas}}</td>
                 <td>{{book.editorial}}</td>
                 <td>{{book.precio | currency}}</td>
-                @if (book.stock > 0) {
+                @if (book.stock) {
                     <td>{{book.stock}}</td>
                 } @else {
                     <td class="agotado">Agotado</td>
                 }
-                <td>
-                    <button (click)="downQuantity(book)">-</button>
-                    <p>{{book.quantity}}</p>
-                    <button (click)="upQuantity(book)">+</button>
+                <td>{{book.quantity}}
+                    @if (book.stock) {
+                        <app-input-integer [(quantity)]="book.quantity" [stock]="book.stock"></app-input-integer>
+                    }
                 </td>
             </tr>
         } @empty {
