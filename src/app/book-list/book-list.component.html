@@ -26,6 +26,7 @@
                 <td>{{book.quantity}}
                     @if (book.stock) {
                         <app-input-integer [(quantity)]="book.quantity" [stock]="book.stock"></app-input-integer>
+                        <button (click)="addToCart(book)">Comprar</button>
                     }
                 </td>
             </tr>

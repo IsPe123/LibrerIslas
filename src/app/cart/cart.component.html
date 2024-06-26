@@ -1,1 +1,7 @@
-<p>cart works!</p>
+<h2>Carrito</h2>
+<ul>
+    @for (book of cartList$ | async; track book.id){
+        <li>{{book.libro}}</li>
+        <li>{{book.quantity}}</li>
+    }
+</ul>
