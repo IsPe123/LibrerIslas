@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrl: './cart.component.scss'
+  styleUrls: ['./cart.component.scss']
 })
 export class CartComponent {
 
@@ -15,5 +15,7 @@ export class CartComponent {
     this.cartList$ = cart.cartList.asObservable();
   }
 
-
+  trackByFn(index: number, item: Book): number {
+    return item.id;
+  }
 }

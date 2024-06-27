@@ -6,19 +6,20 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class BookCartService {
-  
+
   private _cartList: Book[] = [];
   cartList: BehaviorSubject<Book[]> = new BehaviorSubject(this._cartList);
 
   constructor() { }
-  
+
   addToCart(book: Book) {
     let item = this._cartList.find((v1) => v1.libro == book.libro);
     if (!item) {
-      this._cartList.push(book);
+      this._cartList.push({...book}); // Usar el operador de propagación para evitar modificar el objeto original
     } else {
-      item.quantity+= book.quantity;
+      item.quantity += book.quantity;
     }
+    this.cartList.next(this._cartList); // Emitir el nuevo valor
   }
 
 }

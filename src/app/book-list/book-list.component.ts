@@ -5,7 +5,7 @@ import { BookCartService } from '../book-cart.service';
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
-  styleUrl: './book-list.component.scss'
+  styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent {
   books: Book[] = [
@@ -54,9 +54,10 @@ export class BookListComponent {
   constructor(private cart: BookCartService) {}
 
   addToCart(book: Book): void {
-    this.cart.addToCart(book);
-    book.stock -= book.quantity;
-    book.quantity = 0;
+    if (book.quantity > 0 && book.quantity <= book.stock) {
+      this.cart.addToCart(book);
+      book.stock -= book.quantity;
+      book.quantity = 0;
+    }
   }
-
 }
