@@ -15,11 +15,11 @@ export class BookCartService {
   addToCart(book: Book) {
     let item = this._cartList.find((v1) => v1.libro == book.libro);
     if (!item) {
-      this._cartList.push({...book}); // Usar el operador de propagación para evitar modificar el objeto original
+      this._cartList.push({...book});
     } else {
       item.quantity += book.quantity;
     }
-    this.cartList.next(this._cartList); // Emitir el nuevo valor
+    this.cartList.next(this._cartList);
   }
 
 }

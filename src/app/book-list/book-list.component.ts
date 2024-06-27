@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Book } from './book';
 import { BookCartService } from '../book-cart.service';
+import { BookDataService } from '../book-data.service';
 
 @Component({
   selector: 'app-book-list',
@@ -8,7 +9,10 @@ import { BookCartService } from '../book-cart.service';
   styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent {
-  books: Book[] = [
+  books: Book[] = [];
+
+  /*
+  [
     {
       libro: 'La Biblia',
       autor: 'Varios',
@@ -50,8 +54,13 @@ export class BookListComponent {
       quantity: 0,
     }
   ];
+  */
 
-  constructor(private cart: BookCartService) {}
+  constructor(private cart: BookCartService, private booksDataService: BookDataService) { }
+
+  ngOnInit(): void{
+    this.booksDataService.getAll().subscribe(books => this.books = books);
+  }
 
   addToCart(book: Book): void {
     if (book.quantity > 0 && book.quantity <= book.stock) {
