@@ -1,13 +1,17 @@
 <header>
   <h1>{{title}}</h1>
-  <ul class="navigation">
-    <li><a [routerLink]="['/']">Inicio</a></li>
-    <li><a [routerLink]="['/about']">About</a></li>
-  </ul>
+  <nav>
+    <ul>
+      <li><a [routerLink]="['/']">Inicio</a></li>
+      <li><a [routerLink]="['/about']">About</a></li>
+    </ul>    
+  </nav>
 </header>
 <main>
   <router-outlet></router-outlet>
 </main>
 <footer>
-  <p>Texto del footer</p>
+  <p>2024 Librerislas. Todos los derechos reservados.</p>
+  <p>Contacto: infolibrerislas.com | Teléfono: +34 123 456 789</p>
+  <p>Calle de los Libros, 123, 35000 Las Palmas, Gran Canaria</p>
 </footer>

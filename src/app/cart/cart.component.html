@@ -1,7 +1,23 @@
-<h2>Carrito</h2>
-<ul>
-    @for (book of cartList$ | async; track book.id){
-        <li>{{book.libro}}</li>
-        <li>{{book.quantity}}</li>
-    }
-</ul>   
+<section>
+    <h2>Carrito</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Libro</th>
+                <th>Cantidad</th>
+                <th>Precio</th>   
+                <th>Subtotal</th>         
+            </tr>
+        </thead>
+        <tbody>
+            @for (book of cartList$ | async; track book.id){
+                <tr>
+                    <td>{{book.libro}}</td>
+                    <td>{{book.quantity}}</td>    
+                    <td>{{book.precio | currency}}</td>  
+                    <td>{{book.precio * book.quantity | currency}}</td>      
+                </tr>
+            }
+        </tbody>  
+    </table>    
+</section>

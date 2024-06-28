@@ -1,4 +1,4 @@
-<table>
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Libro</th>
@@ -23,11 +23,15 @@
                 } @else {
                     <td class="agotado">Agotado</td>
                 }
-                <td>{{book.quantity}}
+                <td class="botones">
                     @if (book.stock) {
                         <app-input-integer [(quantity)]="book.quantity" [stock]="book.stock"></app-input-integer>
-                        <button (click)="addToCart(book)">Comprar</button>
+                    } @else {
+                        <p class="nada">algo</p>
                     }
+                </td>
+                <td>
+                    <button class="btn btn-outline-secondary" (click)="addToCart(book)">Agregar</button>
                 </td>
             </tr>
         } @empty {
